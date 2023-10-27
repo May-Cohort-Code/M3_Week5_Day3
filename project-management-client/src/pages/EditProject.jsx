@@ -24,7 +24,7 @@ function EditProject() {
 
     
     function deleteProject(){
-        axios.delete(`http://localhost:5005/api/projects/${id}`)
+        axios.delete(`https://project-m-server.onrender.com/api/projects/${id}`)
         .then(response=>{
             navigate('/projects')
         })
@@ -35,7 +35,7 @@ function EditProject() {
     }
 
     useEffect(()=>{
-        axios.get(`http://localhost:5005/api/projects/${id}`)
+        axios.get(`https://project-m-server.onrender.com/api/projects/${id}`)
         .then(response=>{
             console.log(response.data)
             setTitle(response.data.title)
@@ -47,7 +47,7 @@ function EditProject() {
     function handleSubmit(e){
         e.preventDefault()
 
-        axios.put(`http://localhost:5005/api/projects/${id}`,{title,description})
+        axios.put(`${process.env.REACT_APP_SERVER_URL}/api/projects/${id}`,{title,description})
         .then((updatedProject)=>{
             navigate(`/projects/${id}`)
         })

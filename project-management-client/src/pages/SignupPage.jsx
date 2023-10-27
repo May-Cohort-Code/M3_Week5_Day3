@@ -27,7 +27,7 @@ function SignupPage(props) {
 
     //send post request to /auth/signup to my server
 
-    axios.post('http://localhost:5005/auth/signup',newUser)
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signup`,newUser)
     .then(()=>{
         navigate('/login')
     })

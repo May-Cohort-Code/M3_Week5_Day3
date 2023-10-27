@@ -3,7 +3,7 @@ import axios from 'axios';
 class ProjectsService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL || 'http://localhost:5005'
+      baseURL: process.env.REACT_APP_SERVER_URL || 'https://project-m-server.onrender.com/'
     });
  
     // Automatically set JWT token in the headers for every request
@@ -43,6 +43,10 @@ class ProjectsService {
   deleteProject = id => {
     return this.api.delete(`/api/projects/${id}`);
   };
+
+  uploadPicture = pic =>{
+    return this.api.post(`/api/upload`,pic)
+  }
 }
  
 // Create one instance object

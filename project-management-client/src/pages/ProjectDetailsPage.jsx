@@ -42,6 +42,7 @@ function ProjectDetailsPage() {
         {/* After we set the state to the 1 project */}
         {project && (
             <>
+            <img src={project.image} alt="" />
             <h1>{project.title}</h1>
             <p>{project.description}</p>
             </>

@@ -25,7 +25,7 @@ function LoginPage(props) {
 
     const userInfo = {email,password}
 
-    axios.post(`${API_URL}/auth/login`,userInfo)
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`,userInfo)
     .then((response)=>{
         console.log(response.data)
         localStorage.setItem('authToken',response.data.authToken)
